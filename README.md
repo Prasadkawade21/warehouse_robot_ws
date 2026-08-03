@@ -91,7 +91,23 @@ warehouse_robot_ws
 
 ## 📸 Current Simulation
 
-Current robot features:
+### RViz Visualization
+
+<p align="center">
+  <img src="images/rviz.png" alt="RViz Screenshot" width="800"/>
+</p>
+
+---
+
+### Gazebo Simulation
+
+<p align="center">
+  <img src="images/gazebo.png" alt="Gazebo Screenshot" width="800"/>
+</p>
+
+---
+
+### Current Features
 
 - ✅ Differential Drive
 - ✅ Left Wheel
@@ -101,7 +117,6 @@ Current robot features:
 - ✅ Keyboard Teleoperation
 - ✅ Gazebo Simulation
 - ✅ RViz Visualization
-
 ---
 
 ## 🚀 Build
