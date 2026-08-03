@@ -51,61 +51,113 @@
 
   <link name="left_wheel">
 
-    <visual>
-      <origin rpy="1.5708 0 0"/>
+  <visual>
+    <origin rpy="1.5708 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
 
-      <geometry>
-        <cylinder
-          radius="${wheel_radius}"
-          length="${wheel_width}"/>
-      </geometry>
+    <material name="Black">
+      <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  </visual>
 
-      <material name="Black">
-        <color rgba="0.1 0.1 0.1 1"/>
-      </material>
+  <collision>
+    <origin rpy="1.5708 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+  </collision>
 
-    </visual>
+  <inertial>
+    <mass value="0.5"/>
 
-  </link>
+    <origin xyz="0 0 0"/>
+
+    <inertia
+      ixx="0.001"
+      iyy="0.001"
+      izz="0.001"
+      ixy="0"
+      ixz="0"
+      iyz="0"/>
+  </inertial>
+
+</link>
 
   <!-- ================= RIGHT WHEEL ================= -->
 
   <link name="right_wheel">
 
-    <visual>
-      <origin rpy="1.5708 0 0"/>
+  <visual>
+    <origin rpy="1.5708 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
 
-      <geometry>
-        <cylinder
-          radius="${wheel_radius}"
-          length="${wheel_width}"/>
-      </geometry>
+    <material name="Black">
+      <color rgba="0.1 0.1 0.1 1"/>
+    </material>
+  </visual>
 
-      <material name="Black">
-        <color rgba="0.1 0.1 0.1 1"/>
-      </material>
+  <collision>
+    <origin rpy="1.5708 0 0"/>
+    <geometry>
+      <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+    </geometry>
+  </collision>
 
-    </visual>
+  <inertial>
+    <mass value="0.5"/>
 
-  </link>
+    <origin xyz="0 0 0"/>
+
+    <inertia
+      ixx="0.001"
+      iyy="0.001"
+      izz="0.001"
+      ixy="0"
+      ixz="0"
+      iyz="0"/>
+  </inertial>
+
+</link>
 
   <!-- ================= CASTER ================= -->
 
   <link name="caster_wheel">
 
-    <visual>
+  <visual>
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
 
-      <geometry>
-        <sphere radius="0.03"/>
-      </geometry>
+    <material name="Gray">
+      <color rgba="0.5 0.5 0.5 1"/>
+    </material>
+  </visual>
 
-      <material name="Gray">
-        <color rgba="0.5 0.5 0.5 1"/>
-      </material>
+  <collision>
+    <geometry>
+      <sphere radius="0.03"/>
+    </geometry>
+  </collision>
 
-    </visual>
+  <inertial>
+    <mass value="0.2"/>
 
-  </link>
+    <origin xyz="0 0 0"/>
+
+    <inertia
+      ixx="0.0001"
+      iyy="0.0001"
+      izz="0.0001"
+      ixy="0"
+      ixz="0"
+      iyz="0"/>
+  </inertial>
+
+</link>
 
   <!-- ================= LEFT JOINT ================= -->
 
