@@ -159,4 +159,6 @@
 
   </joint>
 
+  <xacro:include filename="gazebo.xacro"/>
+
 </robot>
