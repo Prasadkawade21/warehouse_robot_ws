@@ -1,25 +1,53 @@
 # 🤖 Warehouse Robot Simulation using ROS 2 Jazzy & Gazebo Harmonic
 
-A custom differential drive warehouse robot built from scratch using **ROS 2 Jazzy**, **Gazebo Harmonic**, **RViz2**, and **Xacro**. This project demonstrates robot modeling, simulation, keyboard teleoperation, and serves as the foundation for future autonomous warehouse navigation using **SLAM** and **Navigation2**.
+A custom Differential Drive Autonomous Mobile Robot (AMR) built completely from scratch using **ROS 2 Jazzy**, **Gazebo Harmonic**, **RViz2**, and **Xacro**.
+
+This project demonstrates robot modeling, simulation, differential drive control, keyboard teleoperation, LiDAR integration, and ROS ↔ Gazebo communication. It serves as the foundation for building a fully autonomous warehouse robot using **SLAM Toolbox** and **Navigation2**.
 
 ---
 
-## 🚀 Project Overview
+# 🚀 Project Overview
 
-This project aims to build a complete Autonomous Mobile Robot (AMR) simulation for warehouse automation.
+This project aims to build a complete Autonomous Mobile Robot (AMR) for warehouse automation.
 
-The robot is designed and simulated completely from scratch using ROS 2 tools and will be extended with:
+The robot is being developed incrementally, with each milestone introducing a new robotics capability.
 
-- LiDAR
-- Camera
-- SLAM
+Current development includes:
+
+- ✅ Robot Modeling
+- ✅ Gazebo Simulation
+- ✅ Differential Drive
+- ✅ Keyboard Teleoperation
+- ✅ 2D LiDAR
+- ✅ LaserScan Publishing
+
+Upcoming milestones include:
+
+- Camera Integration
+- SLAM Mapping
 - Navigation2
-- Autonomous obstacle avoidance
-- Warehouse environment
+- Warehouse Environment
+- Autonomous Navigation
+- Pick & Place
 
 ---
 
-## 🛠️ Technologies Used
+# 📈 Project Progress
+
+| Milestone | Status |
+|-----------|--------|
+| Milestone 1 – Robot Description | ✅ Complete |
+| Milestone 2 – Gazebo Integration | ✅ Complete |
+| Milestone 3 – Differential Drive & Teleoperation | ✅ Complete |
+| Milestone 4 – 2D LiDAR Integration | ✅ Complete |
+| Milestone 5 – Camera Integration | ⏳ In Progress |
+| Milestone 6 – SLAM Mapping | ⏳ Planned |
+| Milestone 7 – Navigation2 | ⏳ Planned |
+| Milestone 8 – Autonomous Navigation | ⏳ Planned |
+
+---
+
+# 🛠️ Technologies Used
 
 - ROS 2 Jazzy
 - Gazebo Harmonic
@@ -31,13 +59,17 @@ The robot is designed and simulated completely from scratch using ROS 2 tools an
 - Joint State Publisher
 - ros_gz_sim
 - ros_gz_bridge
-- Git & GitHub
+- Differential Drive Plugin
+- Gazebo Sensors System
+- LaserScan
+- Git
+- GitHub
 
 ---
 
-## 📂 Project Structure
+# 📂 Project Structure
 
-```
+```text
 warehouse_robot_ws
 │
 ├── src
@@ -52,7 +84,9 @@ warehouse_robot_ws
 │
 ├── build
 ├── install
-└── log
+├── log
+├── images
+└── README.md
 ```
 
 ---
@@ -62,9 +96,9 @@ warehouse_robot_ws
 ## ✅ Milestone 1 – Robot Description
 
 - Created ROS 2 workspace
-- Built warehouse_robot_description package
+- Built custom robot description package
 - Designed robot using URDF & Xacro
-- Added robot visualization in RViz
+- Visualized robot in RViz2
 - Configured Robot State Publisher
 - Configured Joint State Publisher
 
@@ -72,54 +106,68 @@ warehouse_robot_ws
 
 ## ✅ Milestone 2 – Gazebo Integration
 
-- Spawned robot into Gazebo Harmonic
-- Added Gazebo launch file
-- Verified complete robot model
-- Fixed robot spawning issues
+- Spawned custom robot in Gazebo Harmonic
+- Created Gazebo launch file
+- Verified robot model
+- Fixed spawning and physics issues
 
 ---
 
-## ✅ Milestone 3 – Differential Drive
+## ✅ Milestone 3 – Differential Drive & Keyboard Teleoperation
 
+- Configured Differential Drive plugin
 - Added Gazebo physics
-- Configured Differential Drive Plugin
-- Integrated ros_gz_bridge
 - Connected `/cmd_vel`
+- Integrated `ros_gz_bridge`
 - Controlled robot using Keyboard Teleoperation
 
 ---
 
-## 📸 Current Simulation
+## ✅ Milestone 4 – 2D LiDAR Integration
 
-### RViz Visualization
+- Added custom LiDAR link
+- Mounted LiDAR on robot
+- Configured Gazebo Sensors System
+- Added GPU LiDAR sensor
+- Published `/scan`
+- Bridged LaserScan to ROS 2
+- Verified LiDAR data using `ros2 topic echo`
+
+---
+
+# 📸 Current Simulation
+
+## RViz2 Visualization
 
 <p align="center">
-  <img src="images/rviz.png" alt="RViz Screenshot" width="800"/>
+  <img src="images/rviz.png" width="850"/>
 </p>
 
 ---
 
-### Gazebo Simulation
+## Gazebo Harmonic Simulation
 
 <p align="center">
-  <img src="images/gazebo.png" alt="Gazebo Screenshot" width="800"/>
+  <img src="images/gazebo.png" width="850"/>
 </p>
 
 ---
 
-### Current Features
+# ✨ Current Features
 
-- ✅ Differential Drive
-- ✅ Left Wheel
-- ✅ Right Wheel
-- ✅ Caster Wheel
-- ✅ Robot TF
+- ✅ Differential Drive Robot
+- ✅ 2 Drive Wheels + Caster Wheel
+- ✅ Robot TF Tree
 - ✅ Keyboard Teleoperation
-- ✅ Gazebo Simulation
-- ✅ RViz Visualization
+- ✅ Gazebo Harmonic Simulation
+- ✅ RViz2 Visualization
+- ✅ 2D LiDAR Sensor
+- ✅ LaserScan Publishing
+- ✅ ROS ↔ Gazebo Bridge
+
 ---
 
-## 🚀 Build
+# 🚀 Build
 
 ```bash
 cd ~/warehouse_robot_ws
@@ -129,7 +177,7 @@ colcon build --symlink-install
 
 ---
 
-## ▶️ Run Simulation
+# ▶️ Run Simulation
 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -141,7 +189,7 @@ ros2 launch warehouse_robot_description gazebo.launch.py
 
 ---
 
-## 🎮 Keyboard Teleoperation
+# 🎮 Keyboard Teleoperation
 
 Open another terminal
 
@@ -155,7 +203,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ---
 
-## 🌉 ROS ↔ Gazebo Bridge
+# 🌉 ROS ↔ Gazebo Bridge (Velocity Commands)
 
 Open another terminal
 
@@ -170,18 +218,57 @@ ros2 run ros_gz_bridge parameter_bridge \
 
 ---
 
+# 📡 ROS ↔ Gazebo Bridge (LiDAR)
+
+Open another terminal
+
+```bash
+source /opt/ros/jazzy/setup.bash
+
+source install/setup.bash
+
+ros2 run ros_gz_bridge parameter_bridge \
+/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan
+```
+
+---
+
+# ✅ Verify Topics
+
+Check available ROS topics:
+
+```bash
+ros2 topic list
+```
+
+Expected topics include:
+
+- `/cmd_vel`
+- `/odom`
+- `/scan`
+- `/tf`
+
+Verify LiDAR:
+
+```bash
+ros2 topic echo /scan
+```
+
+---
+
 # 🗺️ Roadmap
 
 - ✅ Robot Description
 - ✅ Gazebo Simulation
+- ✅ Differential Drive
 - ✅ Keyboard Teleoperation
-- ⏳ LiDAR Integration
+- ✅ LiDAR Integration
 - ⏳ Camera Integration
 - ⏳ SLAM Mapping
 - ⏳ Navigation2
 - ⏳ Warehouse Environment
 - ⏳ Autonomous Navigation
-- ⏳ Pick & Place Integration
+- ⏳ Pick & Place
 
 ---
 
@@ -190,15 +277,17 @@ ros2 run ros_gz_bridge parameter_bridge \
 This project demonstrates practical experience with:
 
 - Robot Modeling
-- ROS 2 Nodes
-- TF Tree
-- Gazebo Simulation
+- ROS 2
+- URDF
+- Xacro
+- Gazebo Harmonic
 - Differential Drive Kinematics
 - Robot State Publisher
+- TF Tree
 - ROS ↔ Gazebo Communication
+- LaserScan Sensors
 - Robot Teleoperation
-- Xacro
-- Git Version Control
+- Git & GitHub
 
 ---
 
@@ -210,8 +299,25 @@ Automation & Robotics Engineer
 
 GitHub: https://github.com/Prasadkawade21
 
+LinkedIn: *(Add your LinkedIn profile here)*
+
 ---
 
-## ⭐ Future Work
+# ⭐ Future Work
 
-The next milestone is integrating a **LiDAR sensor** and building a complete autonomous warehouse robot capable of mapping and navigating using **SLAM** and **Navigation2**.
+The next phase of this project includes:
+
+- Camera Integration
+- SLAM Toolbox Mapping
+- AMCL Localization
+- Navigation2
+- Warehouse Environment
+- Autonomous Obstacle Avoidance
+- Goal-Based Navigation
+- Pick & Place Integration
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
