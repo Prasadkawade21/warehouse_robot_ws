@@ -135,6 +135,18 @@ warehouse_robot_ws
 
 ---
 
+## ✅ Milestone 5 – RGB Camera Integration
+
+- Added RGB camera to the robot
+- Mounted camera on the front of the robot
+- Configured Gazebo Harmonic camera sensor
+- Published `/camera` image topic
+- Published `/camera_info`
+- Bridged camera data to ROS 2
+- Verified live camera stream
+
+---
+
 # 📸 Current Simulation
 
 ## RViz2 Visualization
@@ -153,17 +165,17 @@ warehouse_robot_ws
 
 ---
 
-# ✨ Current Features
+### Current Features
 
-- ✅ Differential Drive Robot
-- ✅ 2 Drive Wheels + Caster Wheel
-- ✅ Robot TF Tree
+- ✅ Differential Drive
 - ✅ Keyboard Teleoperation
+- ✅ 2D LiDAR
+- ✅ RGB Camera
+- ✅ LaserScan Publishing
+- ✅ Camera Image Streaming
+- ✅ ROS ↔ Gazebo Bridge
 - ✅ Gazebo Harmonic Simulation
 - ✅ RViz2 Visualization
-- ✅ 2D LiDAR Sensor
-- ✅ LaserScan Publishing
-- ✅ ROS ↔ Gazebo Bridge
 
 ---
 
@@ -263,7 +275,7 @@ ros2 topic echo /scan
 - ✅ Differential Drive
 - ✅ Keyboard Teleoperation
 - ✅ LiDAR Integration
-- ⏳ Camera Integration
+- ✅ Camera Integration
 - ⏳ SLAM Mapping
 - ⏳ Navigation2
 - ⏳ Warehouse Environment
@@ -305,16 +317,21 @@ LinkedIn: www.linkedin.com/in/prasad-kawade
 
 # ⭐ Future Work
 
-The next phase of this project includes:
+## Upcoming Milestones
 
-- Camera Integration
 - SLAM Toolbox Mapping
 - AMCL Localization
-- Navigation2
-- Warehouse Environment
+- Navigation2 Integration
+- Warehouse Environment Simulation
 - Autonomous Obstacle Avoidance
 - Goal-Based Navigation
+
+## Future Enhancements
+
 - Pick & Place Integration
+- Multi-Robot Fleet Simulation
+- Web Dashboard for Robot Monitoring
+- Object Detection using RGB Camera (YOLO/OpenCV)
 
 ---
 
