@@ -299,7 +299,7 @@ Automation & Robotics Engineer
 
 GitHub: https://github.com/Prasadkawade21
 
-LinkedIn: *(Add your LinkedIn profile here)*
+LinkedIn: www.linkedin.com/in/prasad-kawade
 
 ---
 
