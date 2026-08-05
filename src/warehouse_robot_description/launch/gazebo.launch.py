@@ -11,12 +11,11 @@ import xacro
 
 def generate_launch_description():
 
-    # Warehouse robot package
+    # Package paths
     pkg_path = get_package_share_directory(
         "warehouse_robot_description"
     )
 
-    # Gazebo package
     ros_gz_sim = get_package_share_directory(
         "ros_gz_sim"
     )
@@ -34,6 +33,20 @@ def generate_launch_description():
         ).toxml()
     }
 
+    # Bridge configuration
+    bridge_config = os.path.join(
+        pkg_path,
+        "config",
+        "bridge.yaml"
+    )
+
+    # Custom Gazebo world
+    world_file = os.path.join(
+        pkg_path,
+        "worlds",
+        "warehouse.world"
+    )
+
     return LaunchDescription([
 
         # Start Gazebo
@@ -46,25 +59,39 @@ def generate_launch_description():
                 )
             ),
             launch_arguments={
-                "gz_args": "-r empty.sdf"
+                "gz_args": f"-r {world_file}"
             }.items()
         ),
 
-        # Publish robot state
+        # Robot State Publisher
         Node(
             package="robot_state_publisher",
             executable="robot_state_publisher",
             parameters=[robot_description],
             output="screen"
         ),
+
+        # Spawn Robot
         Node(
-             package="ros_gz_sim",
+            package="ros_gz_sim",
             executable="create",
             arguments=[
                 "-topic",
                 "robot_description",
                 "-name",
                 "warehouse_robot"
+            ],
+            output="screen"
+        ),
+
+        # ROS ↔ Gazebo Bridge
+        Node(
+            package="ros_gz_bridge",
+            executable="parameter_bridge",
+            parameters=[
+                {
+                    "config_file": bridge_config,
+                }
             ],
             output="screen"
         ),
