@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 from glob import glob
 import os
 
-package_name = 'warehouse_robot_description'
+package_name = 'warehouse_robot_navigation'
 
 setup(
     name=package_name,
@@ -20,11 +20,6 @@ setup(
         ),
 
         (
-            os.path.join('share', package_name, 'urdf'),
-            glob('urdf/*')
-        ),
-
-        (
             os.path.join('share', package_name, 'launch'),
             glob('launch/*')
         ),
@@ -35,27 +30,21 @@ setup(
         ),
 
         (
-            os.path.join('share', package_name, 'rviz'),
-            glob('rviz/*')
-        ),
-
-        (
-            os.path.join('share', package_name, 'worlds'),
-            glob('worlds/*')
-        ),
-
-        (
-            os.path.join('share', package_name, 'meshes'),
-            glob('meshes/*')
+            os.path.join('share', package_name, 'maps'),
+            glob('maps/*')
         ),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
     maintainer='prasad',
-    maintainer_email='prasad@example.com',
-    description='Warehouse Robot Description',
+    maintainer_email='prasadkawade0@gmail.com',
+    description='Warehouse Robot Navigation',
     license='Apache-2.0',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'console_scripts': [],
     },
